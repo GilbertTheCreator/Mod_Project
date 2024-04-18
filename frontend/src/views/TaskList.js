@@ -7,7 +7,7 @@ const TaskList = ({ token }) => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/tasks', {
+        const response = await axios.get('https://backendd-rouge.vercel.app/tasks', {
           headers: {
             Authorization: token,
           },
@@ -23,7 +23,7 @@ const TaskList = ({ token }) => {
 
   const handleDeleteAll = async () => {
     try {
-      await axios.delete('http://localhost:3001/tasks', {
+      await axios.delete('https://backendd-rouge.vercel.app/tasks', {
         headers: {
           Authorization: token,
         },

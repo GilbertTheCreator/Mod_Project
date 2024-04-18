@@ -8,7 +8,7 @@ function Login({ setToken }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/login', { username, password });
+      const response = await axios.post('https://backendd-rouge.vercel.app/login', { username, password });
       setToken(response.data.token);
     } catch (error) {
       console.error('Login failed:');

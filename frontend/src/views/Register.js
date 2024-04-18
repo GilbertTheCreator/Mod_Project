@@ -8,7 +8,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3001/register', { username, password });
+      await axios.post('https://backendd-rouge.vercel.app/register', { username, password });
       console.log('Registered successfully');
     } catch (error) {
       console.error('Registration failed:');
