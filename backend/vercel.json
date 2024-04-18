@@ -9,7 +9,7 @@
       "methods": ["OPTIONS", "POST"],
       "dest": "/index.js",
       "headers": {
-        "Access-Control-Allow-Origin": "https://frontendd-theta.vercel.app",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "OPTIONS, POST",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       }
