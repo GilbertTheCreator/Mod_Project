@@ -11,7 +11,7 @@ const port = 3001;
 app.use(express.json());
 
 app.use(cors({
-  origin: 'https://frontendd-lpbrz5w8e-gilberts-projects-a29d49f6.vercel.app/register',
+  origin: '*',
   methods: 'OPTIONS, GET, POST, PUT, DELETE',
   allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
   credentials: true,
