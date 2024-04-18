@@ -58,9 +58,9 @@ app.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ username, password: hashedPassword });
     await newUser.save();
-    res.redirect('User registered successfully'); 
+    res.status(200).json({ message: "User registered successfully" }); 
   } catch (error) {
-    res.redirect('Internal Server Error'); 
+    res.status(500).json({ error: "Internal Server Error" }); 
   }
 });
 
