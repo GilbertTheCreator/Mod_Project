@@ -60,7 +60,7 @@ app.post('/register', async (req, res) => {
     await newUser.save();
     res.status(200).json({ message: "User registered successfully" }); 
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" }); 
+    res.status(500).json({ error: "Server Error" }); 
   }
 });
 
@@ -73,11 +73,11 @@ app.post('/login', async (req, res) => {
       const token = jwt.sign({ username }, process.env.JWT_SECRET_KEY);
       res.json({ token });
     } else {
-      res.redirect('Unauthorized'); 
+      res.status(401).json({ error: 'Unauthorized' });
     }
   } catch (error) {
-    console.error('Login error');
-    res.redirect('Internal Server Error'); 
+    console.error('Login error:', error);
+    res.status(500).json({ error: "Server Error" });
   }
 });
 
@@ -86,8 +86,8 @@ app.get('/tasks', authenticateToken, async (req, res) => {
     const tasks = await Task.find({ userId: req.user.username });
     res.json(tasks);
   } catch (error) {
-    console.error('Error fetching tasks');
-    res.redirect('Internal Server Error'); 
+    console.error('Error fetching tasks:', error);
+    res.status(500).json({ error: "Server Error" });
   }
 });
 
@@ -96,19 +96,20 @@ app.post('/tasks', authenticateToken, async (req, res) => {
     const { title } = req.body;
     const task = new Task({ title, userId: req.user.username });
     await task.save();
-    res.redirect('Task created successfully'); 
+    res.status(200).json({ message: "Task created successfully" });
   } catch (error) {
-    console.error('Error creating task:');
-    res.redirect('Internal Server Error'); 
+    console.error('Error creating task:', error);
+    res.status(500).json({ error: "Server Error" });
   }
 });
 
 app.delete('/tasks', authenticateToken, async (req, res) => {
   try {
     await Task.deleteMany({ userId: req.user.username });
-    res.redirect('Deleted successfully'); 
+    res.status(200).json({ message: "Tasks deleted successfully" });
   } catch (error) {
-    res.redirect('Internal Server Error'); 
+    console.error('Error deleting tasks:', error);
+    res.status(500).json({ error: "Server Error" });
   }
 });
 
