@@ -9,7 +9,7 @@
       "methods": ["OPTIONS", "POST"],
       "dest": "/index.js",
       "headers": {
-        "Access-Control-Allow-Origin": "https://frontend-eta-beryl-79.vercel.app",
+        "Access-Control-Allow-Origin": "https://frontendd-theta.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, POST",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       }
@@ -19,7 +19,7 @@
       "methods": ["OPTIONS", "POST"],
       "dest": "/index.js",
       "headers": {
-        "Access-Control-Allow-Origin": "https://frontend-eta-beryl-79.vercel.app",
+        "Access-Control-Allow-Origin": "https://frontendd-theta.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, POST",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       }
@@ -29,7 +29,7 @@
       "methods": ["OPTIONS", "GET", "POST", "DELETE"],
       "dest": "/index.js",
       "headers": {
-        "Access-Control-Allow-Origin": "https://frontend-eta-beryl-79.vercel.app",
+        "Access-Control-Allow-Origin": "https://frontendd-theta.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, GET, POST, DELETE",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       }
